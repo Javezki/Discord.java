@@ -1,0 +1,48 @@
+networks:
+  local-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 192.168.100.1/24
+services:
+  postgres:
+    image: postgres:15.1
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=PgsqlPass
+      - POSTGRES_DB=discord
+      - POSTGRES_USER=root
+      - LANG=en_US.utf8
+      - PGDATA=/var/lib/postgresql/data
+      - TZ=Asia/Shanghai
+      - PGTZ=Asia/Shanghai
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      # - ./postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - local-net
+  adminer:
+    image: adminer:4.8.1-standalone
+    restart: always
+    ports:
+      - 3001:8080
+    links:
+      - postgres:db
+    networks:
+      - local-net
+    depends_on:
+      - postgres
+  java:
+    image: amazoncorretto:17.0.5
+    volumes:
+      - ./build/libs/discord-0.0.1-SNAPSHOT.jar:/ds/discord-0.0.1-SNAPSHOT.jar
+    command: > 
+      java -Duser.timezone=Asia/Shanghai -jar /ds/discord-0.0.1-SNAPSHOT.jar
+      --spring.profiles.active=pg
+    ports:
+      - 3000:8080
+    networks:
+      - local-net
