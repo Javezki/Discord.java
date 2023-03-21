@@ -1,0 +1,6 @@
+{
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home",
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.import.gradle.offline.enabled": true,
+  "java.jdt.ls.lombokSupport.enabled": true
+}
