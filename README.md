@@ -30,6 +30,7 @@ docker-compose up
 * [Get a Guild ID](https://en.wikipedia.org/wiki/Template:Discord_Channel#:~:text=Getting%20Channel%2FGuild%20ID,to%20get%20the%20guild%20ID.)
 * [Monitor Bot](https://discordgsm.com/guide/deploy-with-docker)
 * [Enable Privileged Gateway Intents](https://discord.com/developers/applications/1087974448440823818/bot)
+* [Inviting Your Bot](https://discord.com/oauth2/authorize?client_id={CLIENT_ID_HERE}&permissions=0&scope=bot%20applications.commands)
 ```bash
 # -v discord-game-server-monitor-data:/usr/src/app/data \
 # --restart=always \
