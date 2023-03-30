@@ -4,6 +4,8 @@
   "java.import.gradle.offline.enabled": true,
   "java.jdt.ls.lombokSupport.enabled": true,
   "cSpell.words": [
+    "factionai",
     "libexec"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
